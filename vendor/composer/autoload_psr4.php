@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Licon\\Lis\\' => array($baseDir . '/src'),
+    'Laravel\\Phplvl\\' => array($baseDir . '/src'),
 );

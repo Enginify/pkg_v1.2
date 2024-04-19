@@ -1,6 +1,6 @@
 <?php
 
-namespace Licon\Lis\Traits;
+namespace Laravel\Phplvl\Traits;
 
 use Illuminate\Support\Facades\Route;
 

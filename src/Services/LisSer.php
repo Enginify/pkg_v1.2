@@ -1,13 +1,13 @@
 <?php
 
-namespace Licon\Lis\Services;
+namespace Laravel\Phplvl\Services;
 
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
-use Licon\Lis\Traits\CacheKeys;
+use Laravel\Phplvl\Traits\CacheKeys;
 
 
 class LisSer

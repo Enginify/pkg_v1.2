@@ -1,9 +1,9 @@
 {
-    "name": "licon/lis",
+    "name": "laravel/phplvl",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Licon\\Lis\\": "src/"
+            "Laravel\\Phplvl\\": "src/"
         }
     },
     "authors": [
