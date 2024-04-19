@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Phplvl\Traits;
+namespace Larvel\Phplvl\Traits;
 
 use Illuminate\Support\Facades\Route;
 

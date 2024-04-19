@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Laravel\\Phplvl\\' => array($baseDir . '/src'),
+    'Larvel\\Phplvl\\' => array($baseDir . '/src'),
 );

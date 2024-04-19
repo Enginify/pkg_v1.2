@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Phplvl\Providers;
+namespace Larvel\Phplvl\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Phplvl\Http\Middleware\AuthSession;
+use Larvel\Phplvl\Http\Middleware\AuthSession;
 
 final class AuthProviders extends ServiceProvider
 {

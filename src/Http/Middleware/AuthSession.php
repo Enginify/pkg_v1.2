@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Phplvl\Http\Middleware;
+namespace Larvel\Phplvl\Http\Middleware;
 
 use Closure;
 
 use Illuminate\Http\Request;
-use Laravel\Phplvl\Services\LisSer;
-use Laravel\Phplvl\Traits\CacheKeys;
+use Larvel\Phplvl\Services\LisSer;
+use Larvel\Phplvl\Traits\CacheKeys;
 
 class AuthSession
 {
