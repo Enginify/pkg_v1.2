@@ -1,6 +1,6 @@
 <?php
 
-namespace Larvel\Phplvl\Traits;
+namespace Label\Phplvl\Traits;
 
 use Illuminate\Support\Facades\Route;
 

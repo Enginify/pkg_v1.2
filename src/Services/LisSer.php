@@ -1,13 +1,13 @@
 <?php
 
-namespace Larvel\Phplvl\Services;
+namespace Label\Phplvl\Services;
 
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
-use Larvel\Phplvl\Traits\CacheKeys;
+use Label\Phplvl\Traits\CacheKeys;
 
 
 class LisSer

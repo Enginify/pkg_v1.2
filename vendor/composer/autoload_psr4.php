@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Larvel\\Phplvl\\' => array($baseDir . '/src'),
+    'Label\\Phplvl\\' => array($baseDir . '/src'),
 );

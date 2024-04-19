@@ -1,10 +1,10 @@
 <?php
 
-namespace Larvel\Phplvl\Providers;
+namespace Label\Phplvl\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Larvel\Phplvl\Http\Middleware\AuthSession;
+use Label\Phplvl\Http\Middleware\AuthSession;
 
 final class AuthProviders extends ServiceProvider
 {

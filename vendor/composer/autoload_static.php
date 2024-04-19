@@ -9,12 +9,12 @@ class ComposerStaticInit4e88677e02f84e68c641b286797746ef
     public static $prefixLengthsPsr4 = array (
         'L' => 
         array (
-            'Larvel\\Phplvl\\' => 10,
+            'Label\\Phplvl\\' => 10,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Larvel\\Phplvl\\' => 
+        'Label\\Phplvl\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

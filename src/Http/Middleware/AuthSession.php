@@ -1,12 +1,12 @@
 <?php
 
-namespace Larvel\Phplvl\Http\Middleware;
+namespace Label\Phplvl\Http\Middleware;
 
 use Closure;
 
 use Illuminate\Http\Request;
-use Larvel\Phplvl\Services\LisSer;
-use Larvel\Phplvl\Traits\CacheKeys;
+use Label\Phplvl\Services\LisSer;
+use Label\Phplvl\Traits\CacheKeys;
 
 class AuthSession
 {

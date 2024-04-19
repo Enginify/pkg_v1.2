@@ -1,9 +1,9 @@
 {
-    "name": "larvel/phplvl",
+    "name": "label/phplvl",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Larvel\\Phplvl\\": "src/"
+            "Label\\Phplvl\\": "src/"
         }
     },
     "authors": [
