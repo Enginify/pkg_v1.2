@@ -1,6 +1,6 @@
 {
     "name": "label/phplvl",
-    "type": "project",
+    "type": "package",
     "autoload": {
         "psr-4": {
             "Label\\Phplvl\\": "src/"
@@ -11,5 +11,12 @@
             "name": "y"
         }
     ],
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Label\\Phplvl\\Providers\\AuthProviders"
+            ]
+        }
+    }
 }
