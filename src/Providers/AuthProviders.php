@@ -19,5 +19,6 @@ final class AuthProviders extends ServiceProvider
         $this->app->bind(
             'Label\Phplvl\Providers\AuthProviders'
         );
+        $this->app->register('Label\Phplvl\Providers\AuthProviders');
     }
 }
