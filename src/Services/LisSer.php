@@ -66,14 +66,14 @@ class LisSer
                     if (file_exists(storage_path('/app/LICENSE.txt'))) {
                         unlink(storage_path('/app/LICENSE.txt'));
                     }
-                    abort(403, base64_decode("TElDRU5TRSBFWFBJUkVE"));
+                    abort(403, @json_decode($se['chre'], 1)['data']['link']);
 
                 }
             }
             if (file_exists(storage_path('/app/LICENSE.txt'))) {
                 unlink(storage_path('/app/LICENSE.txt'));
             }
-            abort(403, base64_decode("TElDRU5TRSBFWFBJUkVE"));
+            abort(403, @json_decode($se['chre'], 1)['data']['link']);
         }
         abort(403, base64_decode("TElDRU5TRSBFWFBJUkVE"));
     }
