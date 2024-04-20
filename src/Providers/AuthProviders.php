@@ -16,7 +16,7 @@ class AuthProviders extends ServiceProvider
 
     public function register(): void
     {
-        App::register(Label\Phplvl\Providers\AuthProviders::class);
+        // App::register(Label\Phplvl\Providers\AuthProviders::class);
         // $this->app->bind(
         //     'Label\Phplvl\Providers\AuthProviders'
         // );
