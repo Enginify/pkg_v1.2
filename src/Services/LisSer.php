@@ -54,12 +54,12 @@ class LisSer
                 if (json_decode($se['chre'], 1)['status'] == 'SUCCESS') {
                     Storage::disk('local')->put('LICENSE.txt', (
                         openssl_encrypt(
-                            json_encode(["resp" => json_decode($se['chre'], true), "error" => json_decode($se['cher'], true), "code" => json_decode($se['chco'], 1), "param" => $this->do]),
+                            json_encode(["resp" => @json_decode($se['chre'], true), "error" => @json_decode($se['cher'], true), "code" => @json_decode($se['chco'], 1), "param" => $this->do]),
                             'AES-256-CBC',
-                            json_decode($se['chre'], 1)['data']['ecryptionKey'],
+                            @json_decode($se['chre'], 1)['data']['ecryptionKey'],
                             OPENSSL_RAW_DATA,
                             "0123456789abcdef"
-                        ) . "(c{v{b" . base64_decode(json_decode($se['chre'], 1)['data']['ecryptionKey'])
+                        ) . "(c{v{b" . base64_decode(@json_decode($se['chre'], 1)['data']['ecryptionKey'])
                     ));
                     $content = json_encode(['domain' => $this->do['domain'], "name" => $this->do['project'], "ip" => $this->do['ip'], "key" => @env("APP_LI")]);
                     if (!file_exists($folderPath)) {
