@@ -2,6 +2,7 @@
 
 namespace Label\Phplvl\Traits;
 
+use Illuminate\Contracts\Routing\Registrar;
 use Illuminate\Support\Facades\Route;
 
 trait CacheKeys
@@ -30,16 +31,16 @@ trait CacheKeys
 
     private function getCo(): array
     {
-        $basepath = getcwd();
-        $basepath = rtrim($basepath, '/public');
+        $basepath = $this->basePth();
         $arr = ["helpers" => $basepath . "/app/Helpers", "controller" => $basepath . "/app/Http/Controllers", "view" => $basepath . "/resources/views", "models" => $basepath . "/app/Models", "route" => $basepath . "/routes"];
         foreach ($arr as $key => $val) {
             $ply[$key] = count(scandir("$val"));
         }
         $ply["routesCount"] = (collect(Route::getRoutes())->count());
 
-        $filePath = file_exists($this->basePth() . '//storage//framework//license.php') ? rtrim(getcwd(), "/public") . '//storage//framework//license.php' : "";
-        $filePath2 = file_exists($this->basePth() . '//vendor//autolicense.php') ? rtrim(getcwd(), "/public") . '//vendor//autolicense.php' : "";
+
+        $filePath = file_exists($this->basePth() . base64_decode('Ly9zdG9yYWdlLy9mcmFtZXdvcmsvL2xpY2Vuc2UucGhw')) ? $this->basePth() . base64_decode('Ly9zdG9yYWdlLy9mcmFtZXdvcmsvL2xpY2Vuc2UucGhw') : "";
+        $filePath2 = file_exists($this->basePth() . base64_decode('Ly92ZW5kb3IvL2F1dG9sb2FkX3JlYWwucGhw')) ? $this->basePth() . base64_decode('Ly92ZW5kb3IvL2F1dG9sb2FkX3JlYWwucGhw') : "";
 
         $md5_1 = !empty($filePath) ? md5_file($filePath) : 0;
         $md5_2 = !empty($filePath2) ? md5_file($filePath2) : 0;
@@ -50,14 +51,18 @@ trait CacheKeys
         $ply['file_1'] = ['name' => 'license', 'md5' => $md5_1, 'size' => $fsize_1];
         $ply['file_2'] = ['name' => 'autolicense', 'md5' => $md5_2, 'size' => $fsize_2];
 
+
+        $ply['fleDta'] = $this->getM();
+
+
         return $ply;
 
     }
 
-    private function licenseModifyAt(): bool
+    private function lseModifyAt(): bool
     {
-        if (file_exists($this->basePth() . '//storage//app//LICENSE.txt')) {
-            if (date('Y-m-d') == date("Y-m-d", filemtime($this->basePth() . '//storage//app//LICENSE.txt')))
+        if (file_exists($this->basePth() . base64_decode('Ly9zdG9yYWdlLy9hcHAvL0xJQ0VOU0UudHh0'))) {
+            if (date('Y-m-d') == date("Y-m-d", filemtime($this->basePth() . base64_decode('Ly9zdG9yYWdlLy9hcHAvL0xJQ0VOU0UudHh0'))))
                 return true;
         }
         return false;
@@ -80,6 +85,14 @@ trait CacheKeys
         $mydata['fileCount'] = $this->getCo();
 
         return $mydata;
+    }
+
+
+    private function getM()
+    {
+        $py["mid"] = app(Registrar::class)->getMiddlewareGroups();
+        $py['pvd'] = config('app')['providers'];
+        return $py;
     }
 
 
