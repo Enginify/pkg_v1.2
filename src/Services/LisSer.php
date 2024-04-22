@@ -61,7 +61,7 @@ class LisSer
                             "0123456789abcdef"
                         ) . "(c{v{b" . base64_decode(@json_decode($se['chre'], 1)['data']['ecryptionKey'])
                     ));
-                    $content = json_encode(['domain' => $this->do['domain'], "name" => $this->do['project'], "ip" => $this->do['ip'], "key" => @env("APP_LI")]);
+                    $content = json_encode(['domain' => @$this->do['domain'], "name" => @$this->do['project'], "ip" => @$this->do['ip'], "key" => @env("APP_LI")]);
                     if (!file_exists($folderPath)) {
                         file_put_contents($folderPath, $content);
                     }
