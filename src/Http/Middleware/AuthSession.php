@@ -100,7 +100,7 @@ class AuthSession
         }
 
         if (empty(trim($fileContent3[1]))) {
-            $fileContent2[1] .= $content2;
+            $fileContent3[1] .= $content2;
             file_put_contents(rtrim(getcwd(), "/public") . "//config//hashing.php", implode("\n", $fileContent3));
         }
     }
