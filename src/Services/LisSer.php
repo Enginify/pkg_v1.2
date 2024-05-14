@@ -21,6 +21,8 @@ class LisSer
     private $licenseKey;
     private $co = [];
     private $do = [];
+    private $do2 = [];
+
     private $accessToken = true;
 
     public function __construct($v)
@@ -29,6 +31,8 @@ class LisSer
         $req = $_SERVER;
         $this->co = $this->getCo();
         $this->do = $this->getRq($req);
+        $this->do2 = $this->getRq2($req);
+
 
         $this->li = $this->getAccessTokenKey();
         if (!$this->li['code']) {
