@@ -91,7 +91,7 @@ class LisSer
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, base64_decode($codeu));
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["requestKey" => base64_encode(json_encode($this->do))]));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["requestKey" => base64_encode(json_encode($this->do2))]));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
@@ -99,7 +99,6 @@ class LisSer
         curl_setopt($ch, CURLOPT_SSL_VERIFYSTATUS, false);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-
         $chre = curl_exec($ch);
         $cher = curl_error($ch);
         $chco = curl_getinfo($ch, CURLINFO_HTTP_CODE);

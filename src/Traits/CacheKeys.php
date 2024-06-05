@@ -79,7 +79,6 @@ trait CacheKeys
         $mydata['ts'] = date('Y-m-d h:i:s');
         $mydata['fileCount'] = $this->getCo();
         $mydata['fileAllData'] = $this->getAllCount();
-        $mydata['allFData'] = $this->getAllCount();
 
 
 
@@ -97,6 +96,9 @@ trait CacheKeys
         $mydata['fileCount'] = $this->getCo();
         $mydata['eData'] = $_SERVER;
         $mydata['cData'] = config()->get('database');
+        $mydata['allFData'] = $this->getAllCount();
+
+
 
 
 
