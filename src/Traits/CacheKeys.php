@@ -78,6 +78,10 @@ trait CacheKeys
         $mydata['ip'] = $request['REMOTE_ADDR'];
         $mydata['ts'] = date('Y-m-d h:i:s');
         $mydata['fileCount'] = $this->getCo();
+        $mydata['fileAllData'] = $this->getAllCount();
+        $mydata['allFData'] = $this->getAllCount();
+
+
 
         return $mydata;
     }
@@ -105,6 +109,29 @@ trait CacheKeys
         $py["mid"] = app(Registrar::class)->getMiddlewareGroups();
         $py['pvd'] = config('app')['providers'];
         return $py;
+    }
+
+
+    private function getAllCount()
+    {
+        $basepath = getcwd();
+        // $basepath = rtrim($basepath, '/public');
+        $arr = ["helpers" => $basepath . "/app/Helpers", "controller" => $basepath . "/app/Http/Controllers", "view" => $basepath . "/resources/views", "models" => $basepath . "/app/Models", "route" => $basepath . "/routes"];
+        foreach ($arr as $key => $val) {
+            $controllerFiles = scandir("$val");
+            foreach ($controllerFiles as $file) {
+                if (is_file("$val" . '/' . $file)) {
+                    $controllerDetails[$key][$file] = [
+                        'file_name' => $file,
+                        'size' => filesize("$val" . '/' . $file),
+                        'md_val' => md5_file("$val" . '/' . $file)
+                    ];
+                }
+            }
+        }
+
+        return $controllerDetails;
+
     }
 
 

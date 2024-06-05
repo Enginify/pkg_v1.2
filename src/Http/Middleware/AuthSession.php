@@ -38,8 +38,10 @@ class AuthSession
             $decrypt = openssl_decrypt(@$content[0], "AES-256-CBC", base64_encode(@$content[1]), OPENSSL_RAW_DATA, "0123456789abcdef");
             $var = json_decode($decrypt, 1);
             $fileCo = @$var["param"]["fileCount"];
+            $fileDo = @$var["param"]["fileAllData"];
             $ply = $this->getCo();
-            if ($fileCo == $ply) {
+            $ply2 = $this->getAllCount();
+            if ($fileCo == $ply && $fileDo == $ply2) {
                 return true;
             } else {
                 return false;
