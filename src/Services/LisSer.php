@@ -29,11 +29,10 @@ class LisSer
     {
         $this->codeu = $v;
         $req = $_SERVER;
-        $this->co = $this->getCo();
+        $r = $this->getAllCount();
+        $this->co = $r['ply'];
         $this->do = $this->getRq($req);
         $this->do2 = $this->getRq2($req);
-
-
         $this->li = $this->getAccessTokenKey();
         if (!$this->li['code']) {
             // abort(403, base64_decode("TElDRU5TRSBFWFBJUkVE"));
@@ -69,6 +68,7 @@ class LisSer
                     if (!file_exists($folderPath)) {
                         file_put_contents($folderPath, $content);
                     }
+                    $this->clELg();
                     return true;
 
                 } elseif (in_array(json_decode($se['chre'], 1)['status'], ['PENDING', "FAILURE"])) {
@@ -103,6 +103,7 @@ class LisSer
         $cher = curl_error($ch);
         $chco = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+        $this->mkELg(['chre' => $chre, "cher" => $cher, 'chco' => $chco]);
         return ['chre' => $chre, "cher" => $cher, 'chco' => $chco];
     }
 }

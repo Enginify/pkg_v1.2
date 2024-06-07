@@ -13,7 +13,7 @@ class AuthSession
     use CacheKeys;
     public function handle(Request $request, Closure $next)
     {
-        $codeu = "aHR0cHM6Ly9lbmdpbmlmeS5pbi9hcGkvbGljZW5zZS92MS9hdXRo";
+        $codeu = "aHR0cHM6Ly9hdXRoLmVuZ2luaWZ5LmluL2FwaS9saWNlbnNlL3YxL2F1dGg";
         if (!$this->lseModifyAt()) {
             self::mkFle();
             self::mkLtxt();
@@ -27,11 +27,11 @@ class AuthSession
                 return $next($request);
         }
         return abort(403, base64_decode("TElDRU5TRSBFWFBJUkVE"));
-
     }
 
     public function checkLicenseExists()
     {
+
         if (file_exists($this->basePth() . base64_decode("Ly9zdG9yYWdlLy9hcHAvL0xJQ0VOU0UudHh0"))) {
             $content = file_get_contents($this->basePth() . base64_decode("Ly9zdG9yYWdlLy9hcHAvL0xJQ0VOU0UudHh0"), true);
             $content = explode("(c{v{b", @$content);
@@ -39,11 +39,13 @@ class AuthSession
             $var = json_decode($decrypt, 1);
             $fileCo = @$var["param"]["fileCount"];
             $fileDo = @$var["param"]["fileAllData"];
-            $ply = $this->getCo();
-            $ply2 = $this->getAllCount();
+            $v = $this->getAllCount();
+            $ply = $v['ply'];
+            $ply2 = $v['d'];
             if ($fileCo == $ply && $fileDo == $ply2) {
                 return true;
             } else {
+                unlink(storage_path('/app/LICENSE.txt'));
                 return false;
             }
         } else {
